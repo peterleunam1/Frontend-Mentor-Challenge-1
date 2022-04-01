@@ -18,7 +18,6 @@ body {
   height: 100vh;
   width: 100%;
   background: hsl(218, 23%, 16%);
-  max-width: $desktop;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +26,7 @@ body {
 
 .card {
   width: 35%;
+  max-width: 539px;
   height: 30vh;
   background: hsl(217, 19%, 24%);
   border-radius: 15px;
@@ -85,6 +85,13 @@ body {
   cursor: pointer;
   background: $primary-color;
 
+  &.is-loading {
+    pointer-events: none;
+    img {
+      animation: rotate 1s infinite;
+    }
+  }
+
   &:hover {
     box-shadow: 0px 0px 15px hsl(150, 100%, 66%);
   }
@@ -108,5 +115,14 @@ body {
     color: $primary-color;
     text-decoration: none;
     cursor: pointer;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

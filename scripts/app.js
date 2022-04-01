@@ -12,6 +12,7 @@ btn.addEventListener("click", () => {
 
 const cargarData = async () => {
   try {
+    btn.classList.add('is-loading');
     const response = await fetch(
       `https://api.adviceslip.com/advice/${random(1, 224)}`
     );
@@ -28,6 +29,8 @@ const cargarData = async () => {
     }
   } catch (error) {
     console.log(error);
+  } finally {
+    btn.classList.remove('is-loading');
   }
 };
 cargarData();
