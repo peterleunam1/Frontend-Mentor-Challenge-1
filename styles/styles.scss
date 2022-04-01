@@ -1,0 +1,112 @@
+$mobile: 375px;
+$desktop: 1440px;
+$primary-color: hsl(150, 100%, 66%);
+$font-color: hsl(193, 38%, 86%);
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+body {
+  font-family: "Marope", sans-serif;
+  height: 100%;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  background: hsl(218, 23%, 16%);
+  max-width: $desktop;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  width: 35%;
+  height: 30vh;
+  background: hsl(217, 19%, 24%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 35px;
+
+  @include mobile {
+    width: 67%;
+  }
+
+  .title {
+    padding: 0;
+    margin: 0;
+    color: $primary-color;
+    font-size: 14px;
+
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+  #info {
+    padding: 7px 0;
+    margin: 0;
+    text-align: center;
+    font-weight: 800;
+    color: $font-color;
+  }
+  .one {
+    @include mobile {
+      display: none;
+    }
+  }
+  .two {
+    display: none;
+    @include mobile {
+      display: block;
+    }
+  }
+}
+
+#buttom {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  background: $primary-color;
+
+  &:hover {
+    box-shadow: 0px 0px 15px hsl(150, 100%, 66%);
+  }
+}
+
+.credits {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  color: $font-color;
+
+  @include mobile {
+    max-width: 70%;
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
